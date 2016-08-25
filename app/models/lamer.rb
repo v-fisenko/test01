@@ -1,0 +1,2 @@
+class Lamer < ApplicationRecord
+end
