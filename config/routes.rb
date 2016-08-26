@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'lamers/new'
+  #get 'lamers/new'
+  resources :lamers
 
   root  'static_pages#home'
   match '/signup',  to: 'lamers#new',            via: 'get'
