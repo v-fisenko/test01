@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825220421) do
+ActiveRecord::Schema.define(version: 20160827233933) do
 
   create_table "lamers", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
+    t.string   "remember_token"
     t.index ["email"], name: "index_lamers_on_email", unique: true
+    t.index ["remember_token"], name: "index_lamers_on_remember_token"
   end
 
   create_table "users", force: :cascade do |t|
