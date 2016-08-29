@@ -20,11 +20,25 @@ module SessionsHelper
     @current_lamer ||= Lamer.find_by(remember_token: remember_token)
   end
 
+  def current_lamer?(lamer)
+    lamer == current_lamer
+  end
+
   def sign_out
     current_lamer.update_attribute(:remember_token,
                                   Lamer.encrypt(Lamer.new_remember_token))
     cookies.delete(:remember_token)
     self.current_lamer = nil
   end
+
+  def redirect_back_or(default)
+    redirect_to(session[:return_to] || default)
+    session.delete(:return_to)
+  end
+
+  def store_location
+    session[:return_to] = request.url if request.get?
+  end
+
 
 end

@@ -1,0 +1,11 @@
+<% provide(:title, 'All users') %>
+<h1>All lamers</h1>
+
+<ul class="lamers">
+  <% @lamers.each do |lamer| %>
+    <li>
+      <%= gravatar_for lamer, size: 52 %>
+      <%= link_to lamer.name, lamer %>
+    </li>
+  <% end %>
+</ul>
