@@ -1,5 +1,5 @@
 class LamersController < ApplicationController
-  before_action :signed_in_user, only: [:edit, :update]
+  before_action :signed_in_lamer, only: [:edit, :update]
 
   def new
     @lamer = Lamer.new
