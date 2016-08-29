@@ -1,0 +1,9 @@
+<li>
+  <%= gravatar_for lamer, size: 52 %>
+  <%= link_to lamer.name, lamer %>
+  <% if current_lamer.admin? && !currentr_lamer?(Lamer) %>
+  <%= link_to "delete", lamer, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+
+</li>

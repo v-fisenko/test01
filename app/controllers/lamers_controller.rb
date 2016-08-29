@@ -1,9 +1,9 @@
 class LamersController < ApplicationController
-  before_action :signed_in_lamer, only: [:edit, :update]
+  before_action :signed_in_lamer, only: [:index,:edit, :update]
   before_action :correct_lamer,   only: [:edit, :update]
 
   def index
-    @lamers = Lamer.all
+    @lamers = Lamer.paginate(page: params[:page])
   end
 
   def new
